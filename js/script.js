@@ -42,7 +42,12 @@ function handleAddSkill() {
 };
 
 function handleDelete() {
-    alert('Elements inside of ul tag deleted');
+// Delete added skills
+    $($ul).on('click', 'li', function() {
+        $(this).closest('li').fadeOut(1000, function() {
+            $(this).remove();
+        });
+    });
 }
 
 function render() {
