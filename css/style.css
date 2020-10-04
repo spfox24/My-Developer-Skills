@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    border: 5px solid gray;
+    border: 15px solid gray;
     justify-content: center;
     align-items: center;
 }
@@ -36,14 +36,6 @@ li, li span {
 li {
     margin: 30px 0 30px 0;
     color: rgb(242, 179, 95);
-}
-
-li span {
-    color: white;
-    margin-right: 10px;
-    text-align: center;
-    background-color: rgb(207, 109, 106);
-    padding: 5px;
 }
 
 input, button {

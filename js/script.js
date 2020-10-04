@@ -10,11 +10,13 @@ let skills;
 const $button = $('button');
 const $ul = $('ul');
 const $input = $('input');
+const $document = $('document');
 
 // Event Listeners
 
 $button.on('click', handleAddSkill);
 $ul.on('click', handleDelete);
+window.addEventListener('load', reload);
 
 // Functions
 
@@ -31,19 +33,29 @@ function handleAddSkill() {
     // check to make sure we have skill data
     if(skill) {
     // create the UI for a skill
-        const $skill = $(`<li><span>X</span> ${skill}</li>`)
+        const $skill = $(`<li>${skill}</li>`)
+    // Local Storage
+        localStorage.setItem(skill, 'item')
     // push the skill UI into the skills list
-    skills.push($skill);
+        skills.push($skill);
     // clear the input tag's value
-    $input.val('');
+        $input.val('');
     // call render()
-    render()
+        render()
     } else return;
 };
+
+function reload() {
+    let array = Object.keys(localStorage);
+        array.forEach(items => {
+            $ul.append(`<li>${items}</li>`);
+        });
+ };
 
 function handleDelete() {
 // Delete added skills
     $($ul).on('click', 'li', function() {
+        localStorage.removeItem(this.innerHTML);
         $(this).closest('li').fadeOut(1000, function() {
             $(this).remove();
         });
