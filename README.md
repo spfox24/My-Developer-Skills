@@ -1,4 +1,4 @@
-# My Developer Skills Lab
+# My Developer Skills List
 
 A simple project that uses jQuery to add my developer skills to a list
 
